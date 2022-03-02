@@ -28,5 +28,6 @@ run:
 	@echo $(APP)
 	docker run -it --rm -v /tmp/.X11-unix/:/tmp/.X11-unix/:ro \
 	-v $$(pwd):/root/data \
-	-e XAUTH=$$(xauth list|grep `uname -n` | cut -d ' ' -f5) -e "DISPLAY" \
+	-e XAUTH=$$(xauth list|grep `uname -n` | cut -d ' ' -f5) \
+	-e DISPLAY=192.168.100.5:0 \
        	$(IMAGE) $(APP)

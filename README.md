@@ -9,6 +9,18 @@ This image is intendend to allow execution os PDI transformations and jobs throu
 
 # Quick start
 
+## Setup project
+make setup
+
+## Setup screen on mac
+brew install socat
+brew cask install xquartz
+open -a XQuartz
+
+socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
+#### in another window
+docker run -e DISPLAY=192.168.59.3:0 jess/geary
+
 ## Basic Syntax
 
 ```
@@ -60,7 +72,7 @@ $ sudo curl -fsSL https://raw.githubusercontent.com/andrespp/docker-pdi/master/s
 $ sudo chmod +x /usr/local/bin/spoon
 ```
 
-Then you'll be able to run JupyterLab in the current directory simply by calling `jlab`:
+Then you'll be able to run spoon in the current directory simply by calling `spoon`:
 
 ```bash
 $ spoon

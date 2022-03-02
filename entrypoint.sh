@@ -4,8 +4,10 @@
 set -e
 
 set_xauth() {
+	touch /root/.Xauthority
+	echo xauth list
+	xauth list
 	echo xauth add $DISPLAY . $XAUTH
-	touch /.Xauthority
 	xauth add $DISPLAY . $XAUTH
 }
 
